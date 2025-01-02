@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Radial com Logout</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Menu principal */
+    .menu-container {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      background-color: #3498db;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .menu-container:hover {
+      box-shadow: 0 0 8px 12px rgba(0, 0, 0, 0.2);
+      transform: scale(1.1);
+    }
+
+    .menu-container.open {
+      width: 280px;
+      height: 280px;
+      transition: all 0.6s ease;
+    }
+
+    /* Itens do menu */
+    .menu-item {
+      position: absolute;
+      width: 100px;
+      height: 50px;
+      background-color: #fff;
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: scale(1.1);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .menu-container.open .menu-item {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+
+    .menu-item:nth-child(1) {
+      top: 20px;
+      left: center;
+      transform: translateX(-50%);
+    }
+
+    .menu-item:nth-child(2) {
+      top: 40%;
+      left: 20px;
+      transform: translateY(-50%);
+    }
+
+    .menu-item:nth-child(3) {
+      top: 40%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+
+    .menu-item:nth-child(4) {
+      bottom: 20px;
+      left: center;
+      transform: translateX(-50%);
+    }
+
+    .menu-item:hover {
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+      background-color: #66aedb;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .menu-item a {
+      text-decoration: none;
+      color: inherit;
+      display: inline;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Ícone de logout */
+    .logout-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 50px;
+      height: 50px;
+      background-color: #007bff; /* Azul padrão */
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .logout-icon:hover {
+      background-color: #ff4d4d; /* Vermelho ao passar o mouse */
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+      transform: scale(1.1); /* Aumenta ligeiramente o ícone */
+    }
+
+    .logout-icon i {
+      color: white;
+      font-size: 20px;
+    }
+
+    .logout-icon span {
+        position: absolute;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .logout-icon:hover span {
+        opacity: 1;
+      }
+
+
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Ícone de Logout -->
+  <div class="logout-icon" onclick="logout()">
+    <i class="fas fa-sign-out-alt"></i>
+    <span>Sair</span>
+  </div>
+
+  <!-- Menu radial -->
+  <div class="menu-container" onclick="toggleMenu()">
+    <div class="menu-item">
+      <a href="novo.html">
+        <i class="fas fa-plus"></i><br> Novo
+      </a>
+    </div>
+    <div class="menu-item">
+      <a href="buscar.html">
+        <i class="fas fa-search"></i><br> Buscar
+      </a>
+    </div>
+    <div class="menu-item">
+      <a href="contato.html">
+        <i class="fas fa-phone"></i><br> Contato
+      </a>
+    </div>
+    <div class="menu-item">
+      <a href="quemsomos.html">
+        <i class="fas fa-info-circle"></i><br> Quem Somos
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.menu-container');
+      menu.classList.toggle('open');
+    }
+
+    function logout() {
+      alert('Você saiu!');
+      // Redirecionar para a página de login (substituir pelo URL real)
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
