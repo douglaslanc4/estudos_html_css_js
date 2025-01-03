@@ -92,11 +92,12 @@ button[type="submit"]{
 }
 
 #signin {
-    left: 25px;
+    left: 0px;
 }
 
 #signup {
     left: 450px;
+    margin-top: -390px ;
 }
 
 i{
